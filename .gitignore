@@ -32,7 +32,7 @@ migrate_working_dir/
 .pub/
 /build/
 /macos
-/windows
+
 /linux
 /web
 /lib/l10n/*.dart
