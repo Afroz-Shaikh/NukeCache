@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   gap: ^3.0.1
+  geekyants_flutter_gauges: ^1.0.3
   path_provider: ^2.1.2
   win32: ^5.2.0
 
