@@ -2,9 +2,10 @@
 
 A bespoke Windows utility app to clear cache and temporary files.
 
+
 ## Description
 
-serves as a *personal* utility tool, tailored for optimizing gaming performance by efficiently clearing cache and temporary files, along with performing various other Windows utility tasks.
+serves as a *personal* utility tool, tailored for  optimizing gaming performance by  clearing cache and temporary files, along with performing various other Windows utility tasks.
 
 
 
@@ -14,3 +15,10 @@ serves as a *personal* utility tool, tailored for optimizing gaming performance 
 
 ```bash
 git clone https://github.com/Afroz-shaikh/nuke_cache.git
+```
+
+2. Run on Windows 
+
+``` bash
+flutter run -d windows
+```
