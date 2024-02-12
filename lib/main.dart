@@ -81,18 +81,13 @@ class LeftSide extends StatelessWidget {
                               builder: (context) {
                                 return AlertDialog(
                                   shape: RoundedRectangleBorder(
+                                      side: const BorderSide(
+                                          color: Colors.blueAccent, width: 2.0),
                                       borderRadius:
                                           BorderRadius.circular(10.0)),
-                                  backgroundColor: Colors.blueAccent,
-                                  title: Text('About'),
-                                  content: Text('This is a simple utility app'),
-                                  actions: [
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text('Close'))
-                                  ],
+                                  backgroundColor: Colors.white,
+                                  content: const Text(
+                                      'Settings Page Under Development'),
                                 );
                               });
                         },
@@ -180,7 +175,7 @@ class RightSide extends StatelessWidget {
                           children: [
                             const UnderDevelopmentWarningWidget(),
                             Gap(10),
-                            Row(
+                            const Row(
                               children: [
                                 Gap(10),
                                 Text(
