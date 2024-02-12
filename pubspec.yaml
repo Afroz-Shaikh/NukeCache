@@ -8,6 +8,8 @@ environment:
 
 dependencies:
   bitsdojo_window: ^0.1.6
+
+  device_info_plus: ^9.1.2
   flutter:
     sdk: flutter
   gap: ^3.0.1

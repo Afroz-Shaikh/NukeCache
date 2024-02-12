@@ -4,6 +4,10 @@
 
 #include "flutter/generated_plugin_registrant.h"
 
+//our imports
+#include "custom_channel.cpp"
+
+
 FlutterWindow::FlutterWindow(const flutter::DartProject& project)
     : project_(project) {}
 
@@ -25,20 +29,13 @@ bool FlutterWindow::OnCreate() {
     return false;
   }
   RegisterPlugins(flutter_controller_->engine());
+  // MY CUSTOM CODE BLOCK
+  flutter::FlutterEngine *newEngine  = flutter_controller_->engine();
+  custom_channels::createChannelSettingsLauncher x = custom_channels::createChannelSettingsLauncher(newEngine);
+  // END OF CUSTOM CODE BLOCK
   SetChildContent(flutter_controller_->view()->GetNativeWindow());
-
-  flutter_controller_->engine()->SetNextFrameCallback([&]() {
-    this->Show();
-  });
-
-  // Flutter can complete the first frame before the "show window" callback is
-  // registered. The following call ensures a frame is pending to ensure the
-  // window is shown. It is a no-op if the first frame hasn't completed yet.
-  flutter_controller_->ForceRedraw();
-
   return true;
-}
-
+} 
 void FlutterWindow::OnDestroy() {
   if (flutter_controller_) {
     flutter_controller_ = nullptr;

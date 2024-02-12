@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:win_utility/service/settings_launcher/settings_launcher.dart';
+
 Future<int> getMemoryUsage() async {
   try {
     final result = await Process.run('systeminfo', []);
@@ -22,6 +24,17 @@ Future<int> getMemoryUsage() async {
   } catch (e) {
     print('Error getting memory usage: $e');
     return -1;
+  }
+}
+
+Future<void> launchWinAbout() async {
+  //ms-settings:about
+  try {
+    final result = WindowsSettingsLauncher.launchWindowsSettings();
+
+    print(result);
+  } catch (e) {
+    print('Error launching ms-settings:about: $e');
   }
 }
 

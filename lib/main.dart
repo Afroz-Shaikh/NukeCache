@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:gap/gap.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
+import 'package:win_utility/screens/sys_info_dialog.dart';
 import 'package:win_utility/service/win_service.dart';
 import 'package:win_utility/widgets/under_dev.dart';
 
@@ -104,16 +105,27 @@ class LeftSide extends StatelessWidget {
                             )),
                       ),
                       Gap(25),
-                      Container(
-                          color: Colors.blueAccent,
-                          child: Column(
-                            children: [
-                              Icon(Icons.more, color: Colors.white, size: 40),
-                              Gap(10),
-                              Text('More',
-                                  style: TextStyle(color: Colors.white)),
-                            ],
-                          ))
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (ctx) {
+                                return SystemInfoDialogue();
+                              });
+                        },
+                        child: Container(
+                            color: Colors.blueAccent,
+                            child: Column(
+                              children: [
+                                Icon(Icons.info_rounded,
+                                    color: Colors.white, size: 40),
+                                Gap(10),
+                                Text('About System',
+                                    style: TextStyle(color: Colors.white)),
+                                Gap(10),
+                              ],
+                            )),
+                      )
                     ],
                   ),
                 ))
