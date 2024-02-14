@@ -30,7 +30,8 @@ Future<int> getMemoryUsage() async {
 Future<void> launchWinAbout() async {
   //ms-settings:about
   try {
-    final result = WindowsSettingsLauncher.launchWindowsSettings();
+    final result = WindowsSettingsLauncher.launchWindowsSettings(
+        'launchStartupAppsSettings');
 
     print(result);
   } catch (e) {
