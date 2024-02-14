@@ -28,25 +28,42 @@ namespace custom_channels {
                     AddMethodHandlers(call, &result);
                 });
         }
-
-        void AddMethodHandlers(const flutter::MethodCall<>& call, std::unique_ptr<flutter::MethodResult<>> *result) {
-            if (call.method_name().compare("launchWindowsSettings") == 0) {
-                try {
-                    LaunchWindowsSettings(result);
-                }
-                catch (...) {
-                    (*result)->Error("An error occurred while launching Windows settings");
-                }
-            }
-            else {
-                (*result)->NotImplemented();
-            }
+void AddMethodHandlers(const flutter::MethodCall<>& call, std::unique_ptr<flutter::MethodResult<>> *result) {
+    if (call.method_name().compare("launchAboutSettings") == 0) {
+        try {
+            LaunchWindowsSettings(L"ms-settings:about", result);
         }
-
-        void LaunchWindowsSettings(std::unique_ptr<flutter::MethodResult<>> *result) {
-            // Launch Windows settings
-            ShellExecuteW(NULL, L"open", L"ms-settings:about", NULL, NULL, SW_SHOWNORMAL);
-            (*result)->Success(nullptr);
+        catch (...) {
+            (*result)->Error("An error occurred while launching Windows settings");
         }
+    }
+    else if (call.method_name().compare("launchStartupAppsSettings") == 0) {
+        try {
+            LaunchWindowsSettings(L"ms-settings:startupapps", result);
+        }
+        catch (...) {
+            (*result)->Error("An error occurred while launching Windows settings");
+        }
+    }
+    else if (call.method_name().compare("launchDefaultAppsSettings") == 0) {
+        try {
+            LaunchWindowsSettings(L"ms-settings:defaultapps", result);
+        }
+        catch (...) {
+            (*result)->Error("An error occurred while launching Windows settings");
+        }
+    }
+    else {
+        (*result)->NotImplemented();
+    }
+}
+
+void LaunchWindowsSettings(LPCWSTR settingsCommand, std::unique_ptr<flutter::MethodResult<>> *result) {
+    // Launch Windows settings
+    ShellExecuteW(NULL, L"open", settingsCommand, NULL, NULL, SW_SHOWNORMAL);
+    (*result)->Success(nullptr);
+}
+
+     
     };
 }
