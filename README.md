@@ -1,7 +1,7 @@
 # nuke_cache
 
 <!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/afroz-shaikh/nukecache" data-color-scheme="no-preference: dark; light: dark; dark: dark_dimmed;" data-icon="octicon-star" data-size="large" aria-label="Star afroz-shaikh/nukecache on GitHub"> STAR THE REPO </a>
+<iframe src="https://ghbtns.com/github-btn.html?user=afroz-shaikh&repo=nukecache&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 
 
 Just a Windows utility app i built for myself
