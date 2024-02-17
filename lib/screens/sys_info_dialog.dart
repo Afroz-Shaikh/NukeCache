@@ -30,20 +30,22 @@ class _SystemInfoDialogueState extends State<SystemInfoDialogue> {
   @override
   void initState() {
     // TODO: implement initState
-    super.initState();
-    _getDeviceInfo();
-    launchWinAbout();
+    // super.initState();
+    // _getDeviceInfo();
+    // launchWinAbout();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(30),
-      color: Colors.black,
-      child: Column(
-        children: [
-          Text(deviceInfo.toString()),
-        ],
+    return Scaffold(
+      body: Container(
+        padding: const EdgeInsets.all(30),
+        color: Colors.black,
+        child: Column(
+          children: [
+            Text(deviceInfo.toString()),
+          ],
+        ),
       ),
     );
   }

@@ -12,6 +12,7 @@ dependencies:
   device_info_plus: ^9.1.2
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.4
   gap: ^3.0.1
   geekyants_flutter_gauges: ^1.0.3
   path_provider: ^2.1.2

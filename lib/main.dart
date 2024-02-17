@@ -9,6 +9,7 @@ import 'package:win_utility/screens/sys_info_dialog.dart';
 import 'package:win_utility/service/win_service.dart';
 import 'package:win_utility/widgets/under_dev.dart';
 
+int index = 0;
 void main() {
   runApp(const MyApp());
   doWhenWindowReady(() {
@@ -105,27 +106,7 @@ class LeftSide extends StatelessWidget {
                             )),
                       ),
                       Gap(25),
-                      GestureDetector(
-                        onTap: () {
-                          showDialog(
-                              context: context,
-                              builder: (ctx) {
-                                return SystemInfoDialogue();
-                              });
-                        },
-                        child: Container(
-                            color: Colors.blueAccent,
-                            child: Column(
-                              children: [
-                                Icon(Icons.info_rounded,
-                                    color: Colors.white, size: 40),
-                                Gap(10),
-                                Text('About System',
-                                    style: TextStyle(color: Colors.white)),
-                                Gap(10),
-                              ],
-                            )),
-                      )
+                      ConfigurationWidget()
                     ],
                   ),
                 ))
@@ -134,11 +115,60 @@ class LeftSide extends StatelessWidget {
   }
 }
 
+class ConfigurationWidget extends StatefulWidget {
+  const ConfigurationWidget({
+    super.key,
+  });
+
+  @override
+  State<ConfigurationWidget> createState() => _ConfigurationWidgetState();
+}
+
+class _ConfigurationWidgetState extends State<ConfigurationWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          index = 1;
+        });
+        // Navigator.push(
+        //     context,
+        //     MaterialPageRoute(
+        //         builder: (context) =>
+        //             const SystemInfoDialogue()));
+        // showDialog(
+        //     context: context,
+        //     builder: (ctx) {
+        //       return SystemInfoDialogue();
+        //     });
+      },
+      child: Container(
+          color: Colors.blueAccent,
+          child: const Column(
+            children: [
+              Icon(Icons.info_rounded, color: Colors.white, size: 40),
+              Gap(10),
+              Text('System Configurations',
+                  style: TextStyle(color: Colors.white)),
+              Gap(10),
+            ],
+          )),
+    );
+  }
+}
+
 const backgroundStartColor = Color(0xff1d1d1d);
 const backgroundEndColor = Color(0xff1d1d1d);
 
-class RightSide extends StatelessWidget {
+class RightSide extends StatefulWidget {
   const RightSide({Key? key}) : super(key: key);
+
+  @override
+  State<RightSide> createState() => _RightSideState();
+}
+
+class _RightSideState extends State<RightSide> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -177,143 +207,160 @@ class RightSide extends StatelessWidget {
                 width: double.infinity,
                 height: double.infinity,
                 color: Colors.red,
-                child: Scaffold(
-                  body: SingleChildScrollView(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            const UnderDevelopmentWarningWidget(),
-                            Gap(10),
-                            const Row(
-                              children: [
-                                Gap(10),
-                                Text(
-                                  'Current Memory Usage',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                Spacer(),
-                                Text('56%'),
-                                Gap(10)
-                              ],
-                            ),
-                            Gap(10),
-                            LinearGauge(
-                              enableGaugeAnimation: true,
-
-                              animationGap: 0.9,
-                              linearGaugeBoxDecoration:
-                                  LinearGaugeBoxDecoration(
-                                      thickness: 20.0,
-                                      borderRadius: 30,
-                                      linearGaugeValueColor: Colors.green,
-                                      edgeStyle: LinearEdgeStyle.bothCurve,
-                                      backgroundColor: Colors.grey.shade300),
-                              start: 0,
-                              // value: 70,
-                              end: 100,
-                              gaugeOrientation: GaugeOrientation.horizontal,
-                              valueBar: const [
-                                ValueBar(
-                                    value: 70,
-                                    color: Colors.green,
-                                    valueBarThickness: 20,
-                                    borderRadius: 30)
-                              ],
-
-                              rulers: RulerStyle(
-                                secondaryRulersWidth: 1,
-                                secondaryRulerPerInterval: 1,
-                                secondaryRulersHeight: 20,
-                                secondaryRulerColor: Colors.black,
-                                showPrimaryRulers: false,
-                                rulersOffset: 10,
-                                labelOffset: 10,
-                                showSecondaryRulers: true,
-                                inverseRulers: false,
-                                rulerPosition: RulerPosition.center,
-                                showLabel: false,
-                              ),
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Clear Temp',
-                              subtitle:
-                                  'Clear Windows Temp Directory c/windows/temp',
-                              onTap: () {
-                                clearWindowsTempDirectory();
-                              },
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Clear User Temp',
-                              subtitle:
-                                  'Clear Current User Temp Directory c/users/username/appdata/local/temp',
-                              onTap: () {
-                                clearCurrentUserTempDirectory();
-                              },
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Clear Recycle Bin',
-                              subtitle: 'Clear Recycle Bin c/\$Recycle.Bin',
-                              onTap: () {
-                                clearRecycleBin();
-                              },
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Clear Prefetch',
-                              subtitle:
-                                  'Clear Prefetch Directory c/windows/prefetch',
-                              onTap: () {
-                                clearPrefetchDirectoryWithAdminPrivileges();
-                              },
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Clear SoftwareDistribution\\Download',
-                              subtitle:
-                                  'Clear SoftwareDistribution\\Download c/windows/SoftwareDistribution/Download',
-                              onTap: () {
-                                clearSoftwareDistributionDownloadWithAdminPrivileges();
-                              },
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Flush DNS Cache',
-                              subtitle: 'Flush DNS Cache',
-                              onTap: () {
-                                flushDNSCache();
-                              },
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Run WSreset',
-                              subtitle: 'Run WSreset',
-                              onTap: () {
-                                runWSReset();
-                              },
-                            ),
-                            Gap(10),
-                            ListTileClearWidget(
-                              title: 'Get Memory Usage',
-                              subtitle: 'Get Memory Usage',
-                              onTap: () {
-                                getMemoryUsage();
-                              },
-                            ),
-                            Gap(10),
-                          ],
-                        ),
-                      ),
+                child: IndexedStack(
+                  index: index,
+                  children: const [
+                    HomeScreenPage(),
+                    Center(child: Text('Second')),
+                    Center(
+                      child: Text('Third'),
                     ),
-                  ),
+                  ],
                 )),
           )
         ]),
+      ),
+    );
+  }
+}
+
+class HomeScreenPage extends StatelessWidget {
+  const HomeScreenPage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const UnderDevelopmentWarningWidget(),
+                const Gap(10),
+                const Row(
+                  children: [
+                    Gap(10),
+                    Text(
+                      'Current Memory Usage',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Text('56%'),
+                    Gap(10)
+                  ],
+                ),
+                Gap(10),
+                LinearGauge(
+                  enableGaugeAnimation: true,
+
+                  animationGap: 0.9,
+                  linearGaugeBoxDecoration: LinearGaugeBoxDecoration(
+                      thickness: 20.0,
+                      borderRadius: 30,
+                      linearGaugeValueColor: Colors.green,
+                      edgeStyle: LinearEdgeStyle.bothCurve,
+                      backgroundColor: Colors.grey.shade300),
+                  start: 0,
+                  // value: 70,
+                  end: 100,
+                  gaugeOrientation: GaugeOrientation.horizontal,
+                  valueBar: const [
+                    ValueBar(
+                        value: 70,
+                        color: Colors.green,
+                        valueBarThickness: 20,
+                        borderRadius: 30)
+                  ],
+
+                  rulers: RulerStyle(
+                    secondaryRulersWidth: 1,
+                    secondaryRulerPerInterval: 1,
+                    secondaryRulersHeight: 20,
+                    secondaryRulerColor: Colors.black,
+                    showPrimaryRulers: false,
+                    rulersOffset: 10,
+                    labelOffset: 10,
+                    showSecondaryRulers: true,
+                    inverseRulers: false,
+                    rulerPosition: RulerPosition.center,
+                    showLabel: false,
+                  ),
+                ),
+                Gap(10),
+                ListTileClearWidget(
+                  title: 'Clear Temp',
+                  subtitle: 'Clear Windows Temp Directory c/windows/temp',
+                  onTap: () {
+                    clearWindowsTempDirectory();
+                  },
+                ),
+                Gap(10),
+                ListTileClearWidget(
+                  title: 'Clear User Temp',
+                  subtitle:
+                      'Clear Current User Temp Directory c/users/username/appdata/local/temp',
+                  onTap: () {
+                    clearCurrentUserTempDirectory();
+                  },
+                ),
+                Gap(10),
+                ListTileClearWidget(
+                  title: 'Clear Recycle Bin',
+                  subtitle: 'Clear Recycle Bin c/\$Recycle.Bin',
+                  onTap: () {
+                    clearRecycleBin();
+                  },
+                ),
+                Gap(10),
+                ListTileClearWidget(
+                  title: 'Clear Prefetch',
+                  subtitle: 'Clear Prefetch Directory c/windows/prefetch',
+                  onTap: () {
+                    clearPrefetchDirectoryWithAdminPrivileges();
+                  },
+                ),
+                Gap(10),
+                ListTileClearWidget(
+                  title: 'Clear SoftwareDistribution\\Download',
+                  subtitle:
+                      'Clear SoftwareDistribution\\Download c/windows/SoftwareDistribution/Download',
+                  onTap: () {
+                    clearSoftwareDistributionDownloadWithAdminPrivileges();
+                  },
+                ),
+                Gap(10),
+                ListTileClearWidget(
+                  title: 'Flush DNS Cache',
+                  subtitle: 'Flush DNS Cache',
+                  onTap: () {
+                    flushDNSCache();
+                  },
+                ),
+                Gap(10),
+                ListTileClearWidget(
+                  title: 'Run WSreset',
+                  subtitle: 'Run WSreset',
+                  onTap: () {
+                    runWSReset();
+                  },
+                ),
+                const Gap(10),
+                ListTileClearWidget(
+                  title: 'Get Memory Usage',
+                  subtitle: 'Get Memory Usage',
+                  onTap: () {
+                    getMemoryUsage();
+                  },
+                ),
+                const Gap(10),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -396,7 +443,7 @@ class WindowButtons extends StatelessWidget {
     return Row(
       children: [
         MinimizeWindowButton(colors: buttonColors),
-        MaximizeWindowButton(colors: buttonColors),
+        // MaximizeWindowButton(colors: buttonColors),
         CloseWindowButton(colors: closeButtonColors),
       ],
     );
