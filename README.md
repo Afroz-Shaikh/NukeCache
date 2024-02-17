@@ -1,7 +1,7 @@
 # nuke_cache
 
-<!-- Place this tag where you want the button to render. -->
-<iframe src="https://ghbtns.com/github-btn.html?user=Afroz-shaikh&repo=nukeCache&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"> </iframe>
+![Static Badge](https://img.shields.io/badge/alpha-passing?label=build)
+
 
 
 Just a Windows utility app i built for myself
