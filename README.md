@@ -1,6 +1,8 @@
 # nuke_cache
 
 ![Static Badge](https://img.shields.io/badge/alpha-passing?label=build)
+![Static Badge](https://img.shields.io/badge/winows-11?logoColor=%234472C4&label=platform&labelColor=%234472C4&color=%23323323)
+
 
 
 
