@@ -6,7 +6,8 @@ Just a Windows utility app i built for myself
 
 ## Description
 
-serves as a *personal* utility tool, tailored for  optimizing gaming performance by  clearing cache and temporary files, along with performing various other Windows utility tasks.
+serves as a *Windows utility tool* , tailored for  clearing cache ralted to Windows files and Nvdia cache , along with some shortcuts to  various other Windows utility tasks.
+
 
 
 
