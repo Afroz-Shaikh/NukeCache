@@ -10,6 +10,7 @@ dependencies:
   bitsdojo_window: ^0.1.6
 
   device_info_plus: ^9.1.2
+  fluent_ui: ^4.9.2
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.4
@@ -17,6 +18,8 @@ dependencies:
   geekyants_flutter_gauges: ^1.0.3
   path_provider: ^2.1.2
   win32: ^5.2.0
+  system_info3: ^4.0.1
+  
 
 dev_dependencies:
   flutter_test:
