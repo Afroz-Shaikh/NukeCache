@@ -1,7 +1,7 @@
-name: win_utility
-description: "A new Flutter project."
+name: nukeCache
+description: "Small Win_utility tool to ease bash and terminal commands"
 publish_to: 'none'
-version: 0.1.0
+version: 0.3.3
 
 environment:
   sdk: '>=3.2.4 <4.0.0'

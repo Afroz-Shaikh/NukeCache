@@ -7,11 +7,8 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:gap/gap.dart';
 
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
-import 'package:win_utility/navigation_pane.dart';
-import 'package:win_utility/old_main.dart';
-import 'package:win_utility/screens/sys_info_dialog.dart';
-import 'package:win_utility/service/win_service.dart';
-import 'package:win_utility/widgets/under_dev.dart';
+import 'package:nukeCache/navigation_pane.dart';
+
 
 int index = 0;
 void main() {

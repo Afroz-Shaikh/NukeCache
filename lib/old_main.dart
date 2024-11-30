@@ -6,10 +6,10 @@ import 'package:fluent_ui/fluent_ui.dart' as FL;
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
-import 'package:win_utility/main.dart';
-import 'package:win_utility/memory.dart';
-import 'package:win_utility/service/win_service.dart';
-import 'package:win_utility/widgets/under_dev.dart';
+import 'package:nukeCache/main.dart';
+import 'package:nukeCache/memory.dart';
+import 'package:nukeCache/service/win_service.dart';
+
 
 const sidebarColor = Colors.blueAccent;
 

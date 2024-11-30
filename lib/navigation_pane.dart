@@ -3,8 +3,9 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as material;
-import 'package:win_utility/about_widget.dart';
-import 'package:win_utility/old_main.dart';
+import 'package:nukeCache/about_widget.dart';
+import 'package:nukeCache/old_main.dart';
+
 
 class NavigationViewHome extends StatefulWidget {
   const NavigationViewHome({super.key});
