@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:win_utility/service/win_service.dart';
 
 class SystemInfoDialogue extends StatefulWidget {
   const SystemInfoDialogue({super.key});

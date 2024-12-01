@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:win_utility/service/settings_launcher/settings_launcher.dart';
+import 'package:nukeCache/service/settings_launcher/settings_launcher.dart';
+
 
 Future<int> getMemoryUsage() async {
   try {
